@@ -24,7 +24,7 @@ app.use(express.json())
 const uri = process.env.ATLAS_URI
 // connect to the database with the uri
 // flags are needed because of updates
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 )
 //
 const connection = mongoose.connection
