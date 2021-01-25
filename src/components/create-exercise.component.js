@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// axios is a HTTP promise based request library
 
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+// Exercise class
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +25,13 @@ export default class CreateExercise extends Component {
     }
   }
 
+  // this lifecycle method runs after component is rendered to DOM
   componentDidMount() {
+    // axios performs get request on URL
     axios.get('http://localhost:5000/users/')
+      // use .then call to return a promise
       .then(response => {
+        // take the .then response
         if (response.data.length > 0) {
           this.setState({
             users: response.data.map(user => user.username),
